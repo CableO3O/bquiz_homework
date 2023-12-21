@@ -41,14 +41,7 @@ body
 	border:#EE7728 1px solid;
 	position:relative;
 }
-.ti
-{
-	width:100%;
-	height:100px;
-	position:relative;
-	background-size:cover;
-	background-repeat:no-repeat;
-}
+
 .dbor
 {
 	border:#EE7728 double 3px;

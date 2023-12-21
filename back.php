@@ -27,13 +27,19 @@ if (!isset($_SESSION['login'])) {
 		</div>
 	</div>
 	<div id="main">
-		<?php
-		$title = $Title->find(['sh' => 1]);
-		?>
-		<a title="<?= $title['text']; ?>" href="index.php">
-			<div class="ti" style="background:url(&#39;./img/<?= $title['img']; ?>&#39;); text-align:center; background-size:cover;">
-			</div><!--標題-->
-		</a>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<?php
+				$title = $Title->find(['sh' => 1]);
+				?>
+				<a title="<?= $title['text']; ?>" href="index.php">
+					<div style=" width:100%;height:15vh; background:url(&#39;./img/<?= $title['img']; ?>&#39;);background-size:100% auto; background-repeat:no-repeat; ">
+					</div><!--標題-->
+				</a>
+			</div>
+		</div>
+	</div>
 		<div id="ms">
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
