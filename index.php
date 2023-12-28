@@ -1,12 +1,4 @@
 <?php include_once "./api/db.php";
-if (isset($_SESSION['login'])) {
-	to("back.php");
-}
-
-if (isset($_GET['error'])) {
-	echo "<script>alert({$_GET['error']})</script>";
-}
-
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -109,41 +101,7 @@ if (isset($_GET['error'])) {
 			<?php include "./front/marquee.php" ?>
 		</div>
 	</div>
-	<!-- 照片輪播 -->
-	<div class="container">
 
-		<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<h1 style="text-align: center;">校園映像區</h1>
-				<?php
-				$imgs = $Image->all(['sh' => 1]);
-				foreach ($imgs as $idx => $img) {
-					if ($idx === 0) {
-				?>
-						<div class="carousel-item active" data-bs-interval="3000">
-							<img src="./img/<?= $img['img']; ?>" class="d-block" style="width: 100%; height:50vh">
-						</div>
-					<?php
-					} else {
-					?>
-						<div class="carousel-item" data-bs-interval="3000">
-							<img src="./img/<?= $img['img']; ?>" class="d-block" style="width: 100%; height:50vh">
-						</div>
-				<?php
-					}
-				}
-				?>
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
-	</div>
 	<?php
 	$do = $_GET['do'] ?? 'main';
 	$file = "./front/{$do}.php";
@@ -185,7 +143,7 @@ if (isset($_GET['error'])) {
 						</p>
 					</div>
 					<div class="modal-footer">
-						<input value="送出" type="submit" class="btn btn-primary">
+						<input value="送出" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
 						<input type="reset" value="清除" class="btn btn-secondary">
 
 					</div>

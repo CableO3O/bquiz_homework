@@ -1,8 +1,42 @@
+	<!-- 照片輪播 -->
+	
+    <div class="container">
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <h1 style="text-align: center;">校園映像區</h1>
+        <?php
+        $imgs = $Image->all(['sh' => 1]);
+        foreach ($imgs as $idx => $img) {
+            if ($idx === 0) {
+        ?>
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="./img/<?= $img['img']; ?>" class="d-block" style="width: 100%; height:50vh">
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="./img/<?= $img['img']; ?>" class="d-block" style="width: 100%; height:50vh">
+                </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+</div>
 <div class="container">
     <div style="height:32px; display:block;"></div>
     <!--正中央-->
-
-
     <div style="height:20vh; border:#0C3 dashed 3px; position:relative;" class="row">
         <div class="col-12">
             <span class="t botli">最新消息區
@@ -43,8 +77,8 @@
                 )
             </script>
         </div>
-        <div class="col-4">
-            <div id="mwww" loop="true" style="width:100%; height:33%;">
+        <div class="col-4" style="height:14vh">
+            <div id="mwww" loop="true" style="width:100%; height:100%;">
                 <div style="width:100%; height:100%; position:relative;" class="cent">沒有資料</div>
             </div>
         </div>
