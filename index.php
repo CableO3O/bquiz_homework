@@ -25,6 +25,10 @@ if (isset($_GET['error'])) {
 		.bg-body-tertiary {
 			background-color: #FC3 !important;
 		}
+
+		body {
+			background-color: lightcyan;
+		}
 	</style>
 </head>
 
@@ -151,11 +155,15 @@ if (isset($_GET['error'])) {
 	?>
 
 	<div style="clear:both;"></div>
-	<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-		<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>
-	</div>
 	<div style="background:#FC3;margin-top:4px;display:block;" class="container-fluid">
-		<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+		<div class="row">
+			<div class="col-4">
+				<span class="t" style="line-height:123px;">進站總人數 :<?= $Total->find(1)['total']; ?></span>
+			</div>
+			<div class="col-8">
+				<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+			</div>
+		</div>
 	</div>
 	<!--login Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,11 +177,11 @@ if (isset($_GET['error'])) {
 					<div class="modal-body">
 						<p class="cent">
 							<label for="acc">帳號 ：</label>
-							<input name="acc" autofocus="" type="text" >
+							<input name="acc" autofocus="" type="text">
 						</p>
 						<p class="cent">
 							<label for="pw">密碼 ：</label>
-							<input name="pw" type="password" >
+							<input name="pw" type="password">
 						</p>
 					</div>
 					<div class="modal-footer">
