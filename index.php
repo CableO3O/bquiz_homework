@@ -1,4 +1,14 @@
-<?php include_once "./api/db.php"; ?>
+<?php include_once "./api/db.php";
+if (isset($_SESSION['login'])) {
+	to("back.php");
+}
+
+if (isset($_GET['error'])) {
+	echo "<script>alert({$_GET['error']})</script>";
+}
+
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -92,6 +102,7 @@
 					</div><!--標題-->
 				</a>
 			</div>
+			<?php include "./front/marquee.php" ?>
 		</div>
 	</div>
 	<!-- 照片輪播 -->
@@ -99,6 +110,7 @@
 
 		<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
+				<h1 style="text-align: center;">校園映像區</h1>
 				<?php
 				$imgs = $Image->all(['sh' => 1]);
 				foreach ($imgs as $idx => $img) {
