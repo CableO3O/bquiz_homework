@@ -68,11 +68,15 @@
 					<?php
 					} else {
 					?>
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">管理登入</button>
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							登入管理
+						</button>
+
 					<?php
 					}
-					include "./front/login.php";
 					?>
+
 				</div>
 			</div>
 		</div>
@@ -141,7 +145,34 @@
 	<div style="background:#FC3;margin-top:4px;display:block;" class="container-fluid">
 		<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 	</div>
+	<!--login Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">管理員登入區</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form method="post" action="./api/checkacc.php" target="back">
+					<div class="modal-body">
+						<p class="cent">
+							<label for="acc">帳號 ：</label>
+							<input name="acc" autofocus="" type="text" >
+						</p>
+						<p class="cent">
+							<label for="pw">密碼 ：</label>
+							<input name="pw" type="password" >
+						</p>
+					</div>
+					<div class="modal-footer">
+						<input value="送出" type="submit" class="btn btn-primary">
+						<input type="reset" value="清除" class="btn btn-secondary">
 
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
