@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db22";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz_01";
     protected $pdo;
     protected $table;
 
