@@ -16,6 +16,7 @@
 	<style>
 		.bg-body-tertiary {
 			background-color: #FC3 !important;
+			
 		}
 
 		body {
@@ -131,7 +132,7 @@
 					<h1 class="modal-title fs-5" id="exampleModalLabel">管理員登入區</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<form method="post" action="./api/checkacc.php" target="back">
+				<form method="post" action="./api/checkacc.php">
 					<div class="modal-body">
 						<p class="cent">
 							<label for="acc">帳號 ：</label>
@@ -141,9 +142,19 @@
 							<label for="pw">密碼 ：</label>
 							<input name="pw" type="password">
 						</p>
+						<?php
+						if (isset($_GET['error'])) {
+							echo "<div class=text-center>";
+							echo "<span style=color:red;>";
+							echo $_GET['error'];
+							echo "</span>";
+							echo "</div>";
+						}
+
+						?>
 					</div>
 					<div class="modal-footer">
-						<input value="送出" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+						<input value="送出" type="submit" class="btn btn-primary"   data-bs-dismiss="modal">
 						<input type="reset" value="清除" class="btn btn-secondary">
 
 					</div>
